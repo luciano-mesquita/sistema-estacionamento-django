@@ -1,0 +1,20 @@
+<h1>Listagem de Movimentos Rotativos</h1>
+
+{% for rotativo in rotativos %}
+    {{ rotativo.checkin }}
+    {{ rotativo.checkout }}
+    {{ rotativo.valor_hora }}
+    {{ rotativo.veiculo }}
+    {{ rotativo.pago }}
+    <a href="{% url 'est_atualiza_rotativo' rotativo.id %}">Editar</a>
+    <a href="{% url 'est_deleta_rotativo' rotativo.id %}">Deletar</a>
+    <br/>
+{% endfor %}
+
+<form action="{% url 'est_cadastra_rotativo' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+
+</form>

@@ -1,0 +1,18 @@
+<h1>Listagem de Pessoas</h1>
+
+
+{% for pessoa in pessoas %}
+    {{ pessoa.nome }}
+    <a href="{% url 'est_atualiza_pessoa' pessoa.id %}">Editar</a>
+    <a href="{% url 'est_deleta_pessoa' pessoa.id %}">Deletar</a><br>
+{% endfor %}
+
+
+
+<form action="{% url 'est_cadastra_pessoa' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+
+</form>

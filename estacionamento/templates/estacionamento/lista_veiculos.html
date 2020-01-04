@@ -1,0 +1,16 @@
+<h1>Listagem de Veículos</h1>
+
+{% for veiculo in veiculos %}
+    {{ veiculo.marca.nome }} | {{ veiculo.placa }}
+    <a href="{% url 'est_atualiza_veiculo' veiculo.id %}">Editar</a>
+    <a href="{% url 'est_deleta_veiculo' veiculo.id %}">Deletar</a><br>
+{% endfor %}
+
+
+<form action="{% url 'est_cadastra_veiculo' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+
+</form>

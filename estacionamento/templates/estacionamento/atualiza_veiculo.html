@@ -1,0 +1,8 @@
+<h1>Atualizando o veculo: {{ veiculo.placa }}</h1>
+
+<form action="{% url 'est_atualiza_veiculo' veiculo.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+</form>

@@ -1,0 +1,8 @@
+<h1>Atualizando o rotativo: {{ rotativo.checkin }}</h1>
+
+<form action="{% url 'est_atualiza_rotativo' rotativo.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+</form>
