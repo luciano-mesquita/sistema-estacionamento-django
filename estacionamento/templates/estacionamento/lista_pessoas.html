@@ -1,5 +1,10 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
 <h1>Listagem de Pessoas</h1>
 
+<br>
 
 {% for pessoa in pessoas %}
     {{ pessoa.nome }}
@@ -7,12 +12,12 @@
     <a href="{% url 'est_deleta_pessoa' pessoa.id %}">Deletar</a><br>
 {% endfor %}
 
-
+<br>
 
 <form action="{% url 'est_cadastra_pessoa' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-
     <button type="submit">Cadastrar</button>
-
 </form>
+
+{% endblock %}

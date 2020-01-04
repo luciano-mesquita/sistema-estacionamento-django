@@ -1,6 +1,12 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
 <h1>Tem certeza que quer deletar: {{ pessoa.nome }}</h1>
 
 <form method="POST" action="{% url 'est_deleta_pessoa' pessoa.id %}">
     {% csrf_token %}
     <button type="submit">Deletar</button>
 </form>
+
+{% endblock %}

@@ -1,6 +1,12 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
 <h1>Tem certeza que quer deletar: {{ rotativo }}</h1>
 
 <form method="POST" action="{% url 'est_deleta_rotativo' rotativo.id %}">
     {% csrf_token %}
     <button type="submit">Deletar</button>
 </form>
+
+{% endblock %}

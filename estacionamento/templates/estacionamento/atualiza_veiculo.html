@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
 <h1>Atualizando o veculo: {{ veiculo.placa }}</h1>
 
 <form action="{% url 'est_atualiza_veiculo' veiculo.id %}" method="POST">
@@ -6,3 +10,5 @@
 
     <button type="submit">Salvar</button>
 </form>
+
+{% endblock %}

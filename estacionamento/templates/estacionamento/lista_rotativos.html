@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
 <h1>Listagem de Movimentos Rotativos</h1>
 
 {% for rotativo in rotativos %}
@@ -14,7 +18,7 @@
 <form action="{% url 'est_cadastra_rotativo' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-
     <button type="submit">Cadastrar</button>
-
 </form>
+
+{% endblock %}
