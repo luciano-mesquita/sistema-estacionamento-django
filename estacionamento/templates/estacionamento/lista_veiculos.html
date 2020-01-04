@@ -1,19 +1,47 @@
 {% extends 'base.html' %}
 
+{% load bootstrap %}
+
 {% block principal %}
 
-<h1>Listagem de Veículos</h1>
+<div class="row">
+   
+    <div class="col-md-6">
+        
+        <h2>Formulário de Cadastro</h2>
+        <form action="{% url 'est_cadastra_veiculo' %}" method="POST">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">Cadastrar</button><br><br>
+    </div>
 
-{% for veiculo in veiculos %}
-    {{ veiculo.marca.nome }} | {{ veiculo.placa }}
-    <a href="{% url 'est_atualiza_veiculo' veiculo.id %}">Editar</a>
-    <a href="{% url 'est_deleta_veiculo' veiculo.id %}">Deletar</a><br>
-{% endfor %}
+    <div class="col-md-6">
+        <h2>Listagem de Veículos</h2>
 
-<form action="{% url 'est_cadastra_veiculo' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            {% for veiculo in veiculos %}
+            <tbody>
+                <tr>
+                    <td>{{ veiculo.id }}</td>
+                    <td>{{ veiculo.marca.nome }}</td>
+                    <td>{{ veiculo.placa }}</td>
+                    <td>
+                        <a href="{% url 'est_atualiza_veiculo' veiculo.id %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'est_deleta_veiculo' veiculo.id %}" class="btn btn-danger">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 
-    <button type="submit">Cadastrar</button>
-</form>
 {% endblock %}
