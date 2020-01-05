@@ -23,7 +23,7 @@ class Veiculo(models.Model):
     cor = models.CharField(max_length=15)
 
     def __str__(self):
-        return self.marca.nome
+        return str(self.marca.nome + " | " + self.placa)
 
 
 class Rotativo(models.Model):

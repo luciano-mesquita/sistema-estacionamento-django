@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 
+{% load bootstrap %}
+
 {% block principal %}
 
-<h1>Atualizando o rotativo: {{ rotativo.checkin }}</h1>
-
-<form action="{% url 'est_atualiza_rotativo' rotativo.id %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <button type="submit">Salvar</button>
-</form>
+<div class="row">
+    <div class="col-md-5">
+        <h3>Atualizando {{ rotativo.checkin }}</h3>
+        <form action="{% url 'est_atualiza_rotativo' rotativo.id %}" method="POST">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+        
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
