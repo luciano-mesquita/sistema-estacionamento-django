@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
+<h3>Deseja excluir {{ obj }}?</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim</button>
+</form>
+
+{% endblock %}

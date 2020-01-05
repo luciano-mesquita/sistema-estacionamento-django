@@ -91,7 +91,7 @@ def deleta_pessoa(request, id):
         pessoa.delete()
         return redirect('est_lista_pessoas')
     else:
-        return render(request, 'estacionamento/confirma_del_pessoa.html', {'pessoa': pessoa})
+        return render(request, 'estacionamento/confirma_delete.html', {'obj': pessoa})
 
 def deleta_veiculo(request, id):
     veiculo = Veiculo.objects.get(id=id)
@@ -100,7 +100,7 @@ def deleta_veiculo(request, id):
         veiculo.delete()
         return redirect('est_lista_veiculos')
     else:
-        return render(request, 'estacionamento/confirma_del_veiculo.html', {'veiculo': veiculo})
+        return render(request, 'estacionamento/confirma_delete.html', {'obj': veiculo})
 
 def deleta_rotativo(request, id):
     rotativo = Rotativo.objects.get(id=id)
@@ -109,4 +109,5 @@ def deleta_rotativo(request, id):
         rotativo.delete()
         return redirect('est_lista_rotativos')
     else:
-        return render(request, 'estacionamento/confirma_del_rotativo.html', {'rotativo': rotativo})
+        return render(request, 'estacionamento/confirma_delete.html', {'obj': rotativo})
+

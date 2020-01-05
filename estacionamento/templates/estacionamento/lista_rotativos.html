@@ -4,23 +4,46 @@
 
 {% block principal %}
 
-<h1>Listagem de Movimentos Rotativos</h1>
+<div class="row">
+    <div class="col-md-5">
+        <h3>Registro de Rotativos</h3>
+        <form action="{% url 'est_cadastra_rotativo' %}" method="POST">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
 
-{% for rotativo in rotativos %}
-    {{ rotativo.checkin }}
-    {{ rotativo.checkout }}
-    {{ rotativo.valor_hora }}
-    {{ rotativo.veiculo }}
-    {{ rotativo.pago }}
-    <a href="{% url 'est_atualiza_rotativo' rotativo.id %}">Editar</a>
-    <a href="{% url 'est_deleta_rotativo' rotativo.id %}">Deletar</a>
-    <br/>
-{% endfor %}
+    <div class="col-md-7">
+        <h3>Listagem de Rotativos</h3>
 
-<form action="{% url 'est_cadastra_rotativo' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Cadastrar</button>
-</form>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Checkin</th>
+                    <th scope="col">Checkout</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Veículo</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            {% for rotativo in rotativos %}
+            <tbody>
+                <tr>
+                    <td>{{ rotativo.checkin }}</td>
+                    <td>{{ rotativo.checkout }}</td>
+                    <td>{{ rotativo.valor_hora }}</td>
+                    <td>{{ rotativo.veiculo }}</td>
+                    <td>
+                        <a href="{% url 'est_atualiza_rotativo' rotativo.id %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'est_deleta_rotativo' rotativo.id %}" class="btn btn-danger">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 
 {% endblock %}
+

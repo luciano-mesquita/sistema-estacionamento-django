@@ -21,7 +21,6 @@ class Veiculo(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     placa = models.CharField(max_length=7)
     cor = models.CharField(max_length=15)
-    observacoes = models.TextField()
 
     def __str__(self):
         return self.marca.nome

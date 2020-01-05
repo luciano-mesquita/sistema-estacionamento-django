@@ -5,10 +5,8 @@
 {% block principal %}
 
 <div class="row">
-    
-    <div class="col-md-6">
-        <br>
-        <h2>Formulário de Cadastro</h2>
+    <div class="col-md-5">
+        <h3>Formulário de Cadastro</h3>
         <form action="{% url 'est_cadastra_pessoa' %}" method="POST">
             {% csrf_token %}
             {{ form|bootstrap }}
@@ -16,16 +14,15 @@
         </form>
     </div>
     
-    <div class="col-md-6">
-        <br>
-        <h2>Listagem de Pessoas</h2>
+    <div class="col-md-7">
+        <h3>Listagem de Pessoas</h3>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Telefone</th>
-                    <th scope="col">Opções</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             {% for pessoa in pessoas %}
