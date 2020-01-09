@@ -8,7 +8,7 @@
    
     <div class="col-md-5">
         
-        <h3>Formulário de Cadastro</h3>
+        <h3>Cadastro de Veículos</h3>
         <form action="{% url 'est_cadastra_veiculo' %}" method="POST">
             {% csrf_token %}
             {{ form|bootstrap }}
