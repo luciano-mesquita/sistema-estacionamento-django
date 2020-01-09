@@ -43,3 +43,20 @@
 </div>
 
 {% endblock %}
+
+{% block menu %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link active" href="{% url 'est_lista_pessoas' %}">Pessoas</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'est_lista_veiculos' %}">Veículos</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'est_lista_rotativos' %}">Rotativos</a>
+        </li>
+    </ul>
+{% endblock %}
