@@ -1,7 +1,0 @@
-git add .
-git commit -m 'FraseExplicativa'
-
-# Verificar associados ao GIT
-git remote -v
-
-git push heroku master
